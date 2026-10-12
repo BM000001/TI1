@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto Eodu</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="botoes-admin">
+        <button id="btnExercicio" class="btn-abrir">Criar</button>
+        <a href="verifica_redacao.html" class="btn-abrir link-abrir">Verificar redação</a>
+        <a href="../index.html" class="btn-abrir link-abrir">Voltar</a>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content" id="popupContent">
+            <h2 id="titulo-popup">Escolha uma opção</h2>
+            <div class="popup-links">
+                <a href="criar_simulados.html">Criar simulado</a>
+                <a href="criar_exercicios.html">Criar exercício</a>
+            </div>
+            <button class="fechar" id="btnFechar">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        const btnAbrir = document.getElementById('btnExercicio');
+        const popup = document.getElementById('popup');
+        const btnFechar = document.getElementById('btnFechar');
+
+        btnAbrir.addEventListener('click', () => {
+            popup.classList.add('show');
+
+        });
+
+        btnFechar.addEventListener('click', () => {
+            popup.classList.remove('show');
+
+        });
+
+        popup.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.classList.remove('show');
+
+            }
+        });
+    </script>
+</body>
+</html>

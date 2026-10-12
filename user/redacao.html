@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinar Redação ENEM - PontoEdu</title>
+    <link rel="stylesheet" href="../css/redacao.css">
+
+</head>
+<body>
+
+    <main>
+        <div class="header-titulo">
+            <h1>Escrever Redação ENEM</h1>
+            <a href="../index.html">Voltar</a>
+        </div>
+
+        <form action="salvarRedacao" method="post" enctype="multipart/form-data">
+            
+            <!-- Opções de Temas -->
+            <div class="form-group">
+                <label for="tema">Escolha o Tema da Redação:</label>
+                <select id="tema" name="tema" required>
+                    <option value="">-- Selecione um tema para treinar --</option>
+                    <option value="cinema">Democratização do acesso ao cinema no Brasil</option>
+                    <option value="estigma-mental">O estigma associado às doenças mentais na sociedade brasileira</option>
+                    <option value="registro-civil">Invisibilidade e registro civil: garantia de acesso à cidadania</option>
+                    <option value="povos-tradicionais">Valorização de comunidades e povos tradicionais no Brasil</option>
+                    <option value="trabalho-cuidado">Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher</option>
+                </select>
+            </div>
+            
+            <!-- Digitar Texto -->
+            <div class="form-group">
+                <label for="texto-redacao">Escreva seu texto aqui:</label>
+                <textarea id="texto-redacao" name="texto_redacao" placeholder="Desenvolva sua redação respeitando o limite tradicional de 30 linhas..."></textarea>
+            </div>
+
+            <!-- Enviar Arquivo (Foto/PDF) -->
+            <div class="form-group file-input-wrapper">
+                <label for="arquivo-redacao">Ou envie uma foto/PDF da sua folha de redação:</label>
+                <input type="file" id="arquivo-redacao" name="arquivo_redacao" accept=".pdf, image/*">
+            </div>
+
+            <!-- Guia Interativo de Critérios -->
+            <div class="criterios-container">
+                <h2>Critérios de Correção (Clique para entender)</h2>
+                
+                <div class="grid-criterios">
+                    <button type="button" class="criterio-card" onclick="alternarCriterio('comp1')">Competência 1: Domínio da norma culta</button>
+                    <div id="comp1" class="criterio-conteudo">
+                        Avalia o uso correto da gramática, concordância, regência, acentuação e escolha de vocabulário formal de acordo com a Língua Portuguesa padrão.
+                    </div>
+
+                    <button type="button" class="criterio-card" onclick="alternarCriterio('comp2')">Competência 2: Compreensão do tema e estrutura</button>
+                    <div id="comp2" class="criterio-conteudo">
+                        Avalia se você não fugiu do tema e se estruturou seu texto perfeitamente no modelo dissertativo-argumentativo (Introdução, Desenvolvimento e Conclusão), usando repertório cultural.
+                    </div>
+
+                    <button type="button" class="criterio-card" onclick="alternarCriterio('comp3')">Competência 3: Defesa do ponto de vista</button>
+                    <div id="comp3" class="criterio-conteudo">
+                        Avalia a sua capacidade de selecionar, relacionar, organizar e interpretar informações, fatos e opiniões em defesa do seu argumento.
+                    </div>
+
+                    <button type="button" class="criterio-card" onclick="alternarCriterio('comp4')">Competência 4: Mecanismos coesivos</button>
+                    <div id="comp4" class="criterio-conteudo">
+                        Avalia a ligação entre os parágrafos e frases. Exige o uso correto de conectivos (como: "portanto", "além disso", "contudo") para deixar o texto fluido.
+                    </div>
+
+                    <button type="button" class="criterio-card" onclick="alternarCriterio('comp5')">Competência 5: Proposta de intervenção</button>
+                    <div id="comp5" class="criterio-conteudo">
+                        Avalia a sua solução para o problema proposto. Deve conter 5 elementos essenciais: Agente (quem faz), Ação (o que faz), Meio/Modo (como faz), Efeito (para que faz) e Detalhamento.
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" class="btn-enviar" value="Enviar para Correção">
+        </form>
+    </main>
+
+    <script>
+        // Função para abrir e fechar as explicações das competências
+        function alternarCriterio(id) {
+            const conteudo = document.getElementById(id);
+            conteudo.style.display = (conteudo.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

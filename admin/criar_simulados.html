@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/simulado.css">
+    <title>Criar Simulado</title>
+</head>
+<body>
+    
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+
+    <main>
+
+    <div class="header-titulo">
+        <h1>Criar Simulado</h1>
+        <a href="index.html">Voltar</a>
+    </div>
+
+        <form action="salveSimulado" method="post">
+
+            <label for="nome_simulado">Nome do simulado:</label><br>
+            <input type="text" name="nome_simulado" placeholder="Digite o nome do simulado" required><br><br>
+
+            <label for="quantidade">Quais matérias vão cair:</label><br>
+            <input type="checkbox" id="materia1" name="materia1" value="matematica">
+            <label for="materia1">Matemática</label><br>
+            <input type="checkbox" id="materia2" name="materia2" value="portugues">
+            <label for="materia2">Língua Portuguesa</label><br>
+            <input type="checkbox" id="materia3" name="materia3" value="historia">
+            <label for="materia3">História</label><br>
+            <input type="checkbox" id="materia4" name="materia4" value="biologia">
+            <label for="materia4">Biologia</label><br>
+            <input type="checkbox" id="materia5" name="materia5" value="fisica">
+            <label for="materia5">Física</label><br>
+            <input type="checkbox" id="materia6" name="materia6" value="geografia">
+            <label for="materia6">Geografia</label><br><br>
+            
+            <label for="quantidade">Quantidade de questões:</label> <br>
+
+
+            <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade de questões" required><br><br>
+
+            <label for="tempo">Tempo (minutos):</label><br>
+            <input type="number" id="tempo" name="tempo" placeholder="Digite a quantidade de tempo (minutos)" required><br><br>
+
+
+            <div class="questoes" id="container-questoes"></div>
+            
+            <input type="submit" value="Criar simulado">
+
+        </form>
+
+    </main>
+    <script src="js/criar_simulados.js"></script>
+</body>
+</html>

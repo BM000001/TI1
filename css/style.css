@@ -1,0 +1,49 @@
+/* --- ESTILOS GERAIS DA TELA --- */
+body {
+    font-family: sans-serif;
+    background-color: #F8FAFC; /* Fundo cinza claro padrão */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centraliza tudo verticalmente na tela */
+}
+
+/* --- CONTAINER DOS BOTÕES --- */
+.select {
+    display: flex;
+    gap: 20px; /* Adiciona uma distância confortável de 20px entre os dois blocos */
+}
+
+/* --- ESTILO DOS BOTÕES QUADRADOS MÉDIOS --- */
+.select a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Cria o formato quadrado médio */
+    width: 160px;
+    height: 160px;
+    
+    background-color: #FFFFFF; /* Fundo interno branco */
+    color: #1E293B; /* Texto escuro profissional */
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Remove o sublinhado padrão de link */
+    
+    border: 2px solid #E2E8F0; /* Borda cinza suave */
+    border-radius: 20px; /* Cantos arredondados modernos */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Sombra bem leve */
+    
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+/* --- EFEITO AO PASSAR O MOUSE (HOVER) --- */
+.select a:hover {
+    border-color: #6366F1; /* Borda muda para o roxo do PontoEdu */
+    color: #6366F1; /* Texto muda para roxo */
+    background-color: #F5F3FF; /* Fundo ganha um tom de roxo extremamente suave */
+}

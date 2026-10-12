@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório do Aluno</title>
+    <link rel="stylesheet" href="../css/relatorio.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Relatório do Aluno</h1>
+            <a class="voltar" href="user.html">Voltar</a>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <span class="label">Questões feitas</span>
+                <span class="valor">28</span>
+            </div>
+            <div class="card">
+                <span class="label">Matérias concluídas</span>
+                <span class="valor">4</span>
+            </div>
+            <div class="card">
+                <span class="label">Simulados concluídos</span>
+                <span class="valor">3</span>
+            </div>
+            <div class="card">
+                <span class="label">Taxa de acerto</span>
+                <span class="valor">78%</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Progresso por matéria</h2>
+            <div class="materias">
+                <div class="materia" data-materia="Matemática" data-status="Concluída" data-questoes="17/20" data-acerto="85%" data-obs="Excelente desempenho geral e boa consistência nas provas.">
+                    <div class="materia-top">
+                        <h3>Matemática</h3>
+                        <span class="status concluida">Concluída</span>
+                    </div>
+                    <div class="barra"><span style="width: 85%"></span></div>
+                    <div class="meta">
+                        <span>17/20</span>
+                        <span>85%</span>
+                    </div>
+                </div>
+
+                <div class="materia" data-materia="Português" data-status="Concluída" data-questoes="13/18" data-acerto="72%" data-obs="Bom domínio de interpretação e gramática, mas ainda há espaço para revisão.">
+                    <div class="materia-top">
+                        <h3>Português</h3>
+                        <span class="status concluida">Concluída</span>
+                    </div>
+                    <div class="barra"><span style="width: 72%"></span></div>
+                    <div class="meta">
+                        <span>13/18</span>
+                        <span>72%</span>
+                    </div>
+                </div>
+
+                <div class="materia" data-materia="História" data-status="Em andamento" data-questoes="12/20" data-acerto="60%" data-obs="Ainda em desenvolvimento; precisa reforçar datas e conceitos de eventos importantes.">
+                    <div class="materia-top">
+                        <h3>História</h3>
+                        <span class="status em-andamento">Em andamento</span>
+                    </div>
+                    <div class="barra"><span style="width: 60%"></span></div>
+                    <div class="meta">
+                        <span>12/20</span>
+                        <span>60%</span>
+                    </div>
+                </div>
+
+                <div class="materia" data-materia="Biologia" data-status="Em andamento" data-questoes="9/19" data-acerto="48%" data-obs="Necessário reforço em genética e ecologia para melhorar a compreensão.">
+                    <div class="materia-top">
+                        <h3>Biologia</h3>
+                        <span class="status em-andamento">Em andamento</span>
+                    </div>
+                    <div class="barra"><span style="width: 48%"></span></div>
+                    <div class="meta">
+                        <span>9/19</span>
+                        <span>48%</span>
+                    </div>
+                </div>
+
+                <div class="materia" data-materia="Geografia" data-status="Não iniciada" data-questoes="0/15" data-acerto="0%" data-obs="Ainda não foi iniciada; recomendado começar com revisão de mapas e conceitos básicos.">
+                    <div class="materia-top">
+                        <h3>Geografia</h3>
+                        <span class="status nao-iniciada">Não iniciada</span>
+                    </div>
+                    <div class="barra"><span style="width: 0%"></span></div>
+                    <div class="meta">
+                        <span>0/15</span>
+                        <span>0%</span>
+                    </div>
+                </div>
+
+                <div class="materia" data-materia="Física" data-status="Não iniciada" data-questoes="0/16" data-acerto="0%" data-obs="Ainda não foi iniciada; vale começar pela revisão de fórmulas e interpretação de exercícios.">
+                    <div class="materia-top">
+                        <h3>Física</h3>
+                        <span class="status nao-iniciada">Não iniciada</span>
+                    </div>
+                    <div class="barra"><span style="width: 0%"></span></div>
+                    <div class="meta">
+                        <span>0/16</span>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Resumo</h2>
+            <ul class="lista">
+                <li>
+                    <span>Tempo médio por questão</span>
+                    <strong>2 min</strong>
+                </li>
+                <li>
+                    <span>Maior rendimento</span>
+                    <strong>Matemática</strong>
+                </li>
+                <li>
+                    <span>Matéria em foco</span>
+                    <strong>Biologia</strong>
+                </li>
+                <li>
+                    <span>Matérias não iniciadas</span>
+                    <strong>3</strong>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="popupMateria" class="popup" aria-hidden="true">
+        <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="tituloPopupMateria">
+            <div class="popup-header">
+                <h3 id="tituloPopupMateria">Matéria</h3>
+                <button type="button" class="close-btn" aria-label="Fechar popup">×</button>
+            </div>
+            <div class="popup-body">
+                <div class="resumo-item">
+                    <strong>Status</strong>
+                    <span id="popupStatus">-</span>
+                </div>
+                <div class="resumo-item">
+                    <strong>Questões</strong>
+                    <span id="popupQuestoes">-</span>
+                </div>
+                <div class="resumo-item">
+                    <strong>Taxa de acerto</strong>
+                    <span id="popupAcerto">-</span>
+                </div>
+                <div class="resumo-item">
+                    <strong>Observação</strong>
+                    <span id="popupObs">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('popupMateria');
+        const popupTitulo = document.getElementById('tituloPopupMateria');
+        const popupStatus = document.getElementById('popupStatus');
+        const popupQuestoes = document.getElementById('popupQuestoes');
+        const popupAcerto = document.getElementById('popupAcerto');
+        const popupObs = document.getElementById('popupObs');
+        const closeBtn = document.querySelector('.close-btn');
+
+        document.querySelectorAll('.materia').forEach((item) => {
+            item.addEventListener('click', () => {
+                popupTitulo.textContent = item.dataset.materia;
+                popupStatus.textContent = item.dataset.status;
+                popupQuestoes.textContent = item.dataset.questoes;
+                popupAcerto.textContent = item.dataset.acerto;
+                popupObs.textContent = item.dataset.obs;
+                popup.classList.add('show');
+                popup.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('show');
+            popup.setAttribute('aria-hidden', 'true');
+        });
+
+        popup.addEventListener('click', (event) => {
+            if (event.target === popup) {
+                popup.classList.remove('show');
+                popup.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+    </div>
+</body>
+</html>
