@@ -15,7 +15,7 @@ if (selectMateria && selectConteudo) {
   
   const atualizarConteudos = () => {
     const materia = selectMateria.value;
-    const listaConteudos = opcoesPorMateria[materia];
+    const listaConteudos = opcoesPorMateria[materia] ?? [];
 
 
     // Gera todas as <option> de uma vez só usando map e join
@@ -26,8 +26,8 @@ if (selectMateria && selectConteudo) {
     }).join('');
 
     // Injeta o HTML completo de uma vez (melhor performance)
-    selectConteudo.innerHTML = optionsHTML;
-    selectConteudo.disabled = false;
+    selectConteudo.innerHTML = '<option value="">Selecione o conteúdo</option>' + optionsHTML;
+    selectConteudo.disabled = listaConteudos.length === 0;
   };
 
   selectMateria.addEventListener('change', atualizarConteudos);
