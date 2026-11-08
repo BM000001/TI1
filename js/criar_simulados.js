@@ -5,7 +5,7 @@ if (selectQuantidade && containerQuestoes) {
   
   const gerarCamposQuestoes = () => {
     // Pega o número digitado ou selecionado pelo usuário
-    const quantidade = parseInt(selectQuantidade.value) || 0;
+    const quantidade = Math.min(100, Math.max(0, parseInt(selectQuantidade.value, 10) || 0));
     
 
     let htmlQuestoes = '';
@@ -72,5 +72,7 @@ if (selectQuantidade && containerQuestoes) {
   };
 
   // Dispara a função quando o usuário mudar a quantidade de questões
+  selectQuantidade.addEventListener('input', gerarCamposQuestoes);
   selectQuantidade.addEventListener('change', gerarCamposQuestoes);
+  gerarCamposQuestoes();
 }
