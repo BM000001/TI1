@@ -19,7 +19,7 @@ if (selectMateria && selectConteudo) {
 
 
     // Gera todas as <option> de uma vez só usando map e join
-    const optionsHTML = listaConteudos.map(item => {
+    const optionsHTML = (listaConteudos || []).map(item => {
       // Cria o valor limpo (sem acento, minúsculo e com hífen)
       const value = item.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-');
       return `<option value="${value}">${item}</option>`;
@@ -27,7 +27,7 @@ if (selectMateria && selectConteudo) {
 
     // Injeta o HTML completo de uma vez (melhor performance)
     selectConteudo.innerHTML = optionsHTML;
-    selectConteudo.disabled = false;
+    selectConteudo.disabled = !listaConteudos;
   };
 
   selectMateria.addEventListener('change', atualizarConteudos);
