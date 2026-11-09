@@ -8,6 +8,7 @@ if (selectQuantidade && containerQuestoes) {
     const quantidade = Math.min(100, Math.max(0, parseInt(selectQuantidade.value, 10) || 0));
     
 
+    const valoresAnteriores = new FormData(document.querySelector('form'));
     let htmlQuestoes = '';
 
     // Loop que roda a quantidade de vezes que o usuário escolheu
@@ -69,10 +70,16 @@ if (selectQuantidade && containerQuestoes) {
 
     // Injeta todo o HTML gerado de uma vez só dentro do container
     containerQuestoes.innerHTML = htmlQuestoes;
+    for (const [nome, valor] of valoresAnteriores.entries()) {
+      const campo = Array.from(containerQuestoes.querySelectorAll('[name]')).find(el => el.name === nome && (el.type !== 'radio' || el.value === valor));
+      if (!campo) continue;
+      if (campo.type === 'radio') campo.checked = true;
+      else campo.value = valor;
+    }
   };
 
   // Dispara a função quando o usuário mudar a quantidade de questões
   selectQuantidade.addEventListener('input', gerarCamposQuestoes);
-  selectQuantidade.addEventListener('change', gerarCamposQuestoes);
+  // O evento input já atualiza os campos; evitar recriação duplicada no change.
   gerarCamposQuestoes();
 }
