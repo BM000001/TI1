@@ -15,12 +15,12 @@
     const questoes = [];
     for (let i = 1; i <= quantidade; i++) {
       const enunciado = String(data.get('enunciado_' + i) || '').trim();
-      const respostas = ['A','B','C','D'].map(letra => String(data.get('resposta' + letra + '_' + i) || '').trim());
+      const alternativas = Object.fromEntries(['A','B','C','D'].map(letra => [letra, String(data.get('resposta' + letra + '_' + i) || '').trim()]));
       const correta = String(data.get('alternativa_correta_' + i) || '');
-      if (!enunciado || respostas.some(resposta => !resposta) || !['A','B','C','D'].includes(correta)) {
+      if (!enunciado || Object.values(alternativas).some(resposta => !resposta) || !['A','B','C','D'].includes(correta)) {
         alert('Preencha todas as questões e marque a alternativa correta.'); return;
       }
-      questoes.push({ enunciado, respostas, correta });
+      questoes.push({ numero: i, enunciado, alternativas, correta });
     }
     const simulado = {
       id: Date.now().toString(36),
@@ -38,8 +38,10 @@
     try {
       const anteriores = JSON.parse(localStorage.getItem(chave) || '[]');
       if (!Array.isArray(anteriores)) throw new Error('Formato inválido');
-      localStorage.setItem(chave, JSON.stringify([...anteriores, simulado]));
-      alert('Simulado salvo neste navegador com sucesso!');
+      // Cada simulado é um objeto separado na lista, com ID próprio.
+      const atualizados = [...anteriores, simulado];
+      localStorage.setItem(chave, JSON.stringify(atualizados));
+      alert('Simulado salvo com ' + questoes.length + ' questão(ões) e quatro alternativas por questão.');
     } catch (erro) {
       alert('Não foi possível salvar. Verifique o armazenamento do navegador.');
       console.error('Falha ao salvar simulado:', erro);
